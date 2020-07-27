@@ -28,10 +28,10 @@ When the user navigates to the index page, they are displayed their previous wor
 
 ### Technology Used
 
-- MongoDB with Mongoose,
-- Node and an Express server,
-- JavaScript,
-- Css,
+- MongoDB with Mongoose
+- Node and an Express server
+- JavaScript
+- CSS
 - HTML5
 
 ### Contributors
