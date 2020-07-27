@@ -31,13 +31,32 @@ router.get('/workouts', (req, res) => {
 });
 
 // get for workouts within a range
-router.get('/workouts/range');
+router.get('/workouts/range', (req, res) => {
+  // find all workout data to populate the stats chart
+  Workout.find({})
+    .then((data) => {
+      // return a status 200 and the data
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 // put for updating existing workouts by id
 router.put('/workouts/:id', (req, res) => {
   const id = req.params.id;
   console.log(req.body);
-  Workout.updateOne({ id: id }, req.body)
+  Workout.updateOne(
+    // where the id matches the workout id
+    { _id: id },
+    {
+      // push the new exercise into the exercises array for that day
+      $push: {
+        exercises: req.body,
+      },
+    }
+  )
     .then((data) => {
       res.status(200).json(data);
     })
