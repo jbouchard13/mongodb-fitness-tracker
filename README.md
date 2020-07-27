@@ -13,6 +13,10 @@
 > [Technology Used](#licensing)
 >
 > [Contributors](#contributors)
+>
+
+### Demo
+![fitness-tracker](https://user-images.githubusercontent.com/61129844/88504591-30965980-cfa3-11ea-82ff-f82f2eae45d4.gif)
 
 ### Description
 
