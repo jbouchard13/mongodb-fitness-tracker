@@ -22,6 +22,7 @@ router.get('/workouts', (req, res) => {
   Workout.find({})
     .then((data) => {
       // send back data as json for the front end
+      Workout.totalDuration();
       res.status(200).json(data);
     })
     .catch((err) => {

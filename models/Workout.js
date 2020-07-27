@@ -44,6 +44,21 @@ const WorkoutSchema = new Schema({
     },
   ],
 });
+// set up method to return the total duration of all exercises within each workout plan
+WorkoutSchema.methods.totalDuration = function () {
+  // set up an adder function to be used when reducing the array
+  const adder = (newDuration, currentTotal) => {
+    newDuration + currentTotal;
+  };
+  let durationArr = [];
+  // get each exercise duration and push it to the array to be added after
+  this.exercises.forEach((exercise) => {
+    durationArr.push(exercise.duration);
+  });
+  // add up the total minutes from the array and return it
+  this.totalDuration = durationArr.reduce(adder);
+  return this.totalDuration;
+};
 
 const Workout = mongoose.model('Workout', WorkoutSchema);
 
