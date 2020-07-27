@@ -39,6 +39,7 @@ router.get('/workouts/range', (req, res) => {
       res.status(200).json(data);
     })
     .catch((err) => {
+      // log error
       console.log(err);
     });
 });
